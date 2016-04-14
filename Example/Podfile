@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'FKRanger_Example', :exclusive => true do
+  pod 'FKRanger', :path => '../'
+end
+
+target 'FKRanger_Tests', :exclusive => true do
+  pod 'FKRanger', :path => '../'
+
+  pod 'FBSnapshotTestCase'
+end
