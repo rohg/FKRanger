@@ -1,0 +1,6 @@
+framework module Pods_FKRanger_Tests {
+  umbrella header "Pods-FKRanger_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,21 @@
+PODS:
+  - FBSnapshotTestCase (2.1.0):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.0)
+  - FBSnapshotTestCase/Core (2.1.0)
+  - FBSnapshotTestCase/SwiftSupport (2.1.0):
+    - FBSnapshotTestCase/Core
+  - FKRanger (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - FKRanger (from `../`)
+
+EXTERNAL SOURCES:
+  FKRanger:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 366ecd378511d7716c79991cd8067d1eed23578d
+  FKRanger: b5c51af185da62f788780e2f4c1524534d182e49
+
+COCOAPODS: 0.39.0

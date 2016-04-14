@@ -1,0 +1,6 @@
+framework module FKRanger {
+  umbrella header "FKRanger-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 //
 
 #import "FKViewController.h"
+#import "NMRangeSlider.h"
 
 @interface FKViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NMRangeSlider *slider  = [[NMRangeSlider alloc] init];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
