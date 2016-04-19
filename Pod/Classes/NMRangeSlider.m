@@ -30,6 +30,7 @@ NSUInteger DeviceSystemMajorVersion() {
     float _upperTouchOffset;
     float _stepValueInternal;
     BOOL _haveAddedSubviews;
+    BOOL valueChanged;
 }
 
 @property (retain, nonatomic) UIImageView* lowerHandle;
@@ -649,6 +650,7 @@ NSUInteger DeviceSystemMajorVersion() {
                 [self bringSubviewToFront:_lowerHandle];
                 
                 [self setLowerValue:newValue animated:_stepValueContinuously ? YES : NO];
+                valueChanged = true;
             }
             else
             {
@@ -671,6 +673,7 @@ NSUInteger DeviceSystemMajorVersion() {
                 _lowerHandle.highlighted=NO;
                 [self bringSubviewToFront:_upperHandle];
                 [self setUpperValue:newValue animated:_stepValueContinuously ? YES : NO];
+                valueChanged = true;
             }
             else
             {
@@ -706,7 +709,10 @@ NSUInteger DeviceSystemMajorVersion() {
         [self setLowerValue:_lowerValue animated:YES];
         [self setUpperValue:_upperValue animated:YES];
     }
-    [self sendSliderActionCompleteNotification];
+    if (valueChanged) {
+        [self sendSliderActionCompleteNotification];
+        valueChanged = false;
+    }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
