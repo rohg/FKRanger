@@ -483,7 +483,7 @@ NSUInteger DeviceSystemMajorVersion() {
     
     if(_trackBackgroundImage.capInsets.left || _trackBackgroundImage.capInsets.right)
     {
-        trackBackgroundRect.size.width=self.bounds.size.width;
+        trackBackgroundRect.size.width=self.bounds.size.width -  58.0  ;
     }
     
     trackBackgroundRect.origin = CGPointMake(0, (self.bounds.size.height/2.0f) - (trackBackgroundRect.size.height/2.0f));
@@ -491,7 +491,8 @@ NSUInteger DeviceSystemMajorVersion() {
     // Adjust the track rect based on the image alignment rects
     
     UIEdgeInsets alignmentInsets = [self trackAlignmentInsets];
-    trackBackgroundRect = UIEdgeInsetsInsetRect(trackBackgroundRect,alignmentInsets);
+    UIEdgeInsets updatedTitleInsets = UIEdgeInsetsMake(alignmentInsets.top,alignmentInsets.left + 29 ,alignmentInsets.bottom,alignmentInsets.right - 29);
+    trackBackgroundRect = UIEdgeInsetsInsetRect(trackBackgroundRect,updatedTitleInsets);
     
     return trackBackgroundRect;
 }
