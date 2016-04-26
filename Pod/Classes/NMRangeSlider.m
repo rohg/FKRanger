@@ -651,6 +651,7 @@ NSUInteger DeviceSystemMajorVersion() {
                 [self bringSubviewToFront:_lowerHandle];
                 
                 [self setLowerValue:newValue animated:_stepValueContinuously ? YES : NO];
+                [self sendSliderActionChangingNotification ];
                 valueChanged = true;
             }
             else
@@ -674,6 +675,7 @@ NSUInteger DeviceSystemMajorVersion() {
                 _lowerHandle.highlighted=NO;
                 [self bringSubviewToFront:_upperHandle];
                 [self setUpperValue:newValue animated:_stepValueContinuously ? YES : NO];
+                [self sendSliderActionChangingNotification ];
                 valueChanged = true;
             }
             else
@@ -720,6 +722,12 @@ NSUInteger DeviceSystemMajorVersion() {
 -(void) sendSliderActionCompleteNotification
 {
     [[NSNotificationCenter defaultCenter]   postNotificationName:@"NMRangeSliderValueChanged"
+                                                          object:self];
+}
+
+-(void) sendSliderActionChangingNotification
+{
+    [[NSNotificationCenter defaultCenter]   postNotificationName:@"NMRangeSliderChanging"
                                                           object:self];
 }
 
